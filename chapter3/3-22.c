@@ -8,8 +8,8 @@
 
 struct node{
     int data;
-    struct node* left;
-    struct node* right;
+    struct node* left; // pointer for left children
+    struct node* right; // pointer for right children
 };
 
 struct node* createNode(int data) {
@@ -38,6 +38,7 @@ void postOrder(struct node* root) {
     }
 }
 
+//* recursive approach for traversal
 void inOrder(struct node* root) {
     if (root != NULL) {
         inOrder(root->left);
@@ -60,4 +61,14 @@ int main() {
     //    1   6
     //   / \
     //  5   2  
+
+    //Linking the root node with left and right children
+    p->left = p1; // 1 becomes left child of 4
+    p->right = p2; // 6 becomes right child of 4
+    p1->left = p3; // 5 becomes left child of 1
+    p1->right = p4; // 2 becomes right child of 1
+    
+    inOrder(p);
+    
+    
 }
