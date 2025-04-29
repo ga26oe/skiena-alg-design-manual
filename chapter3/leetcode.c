@@ -51,12 +51,34 @@ void flatten(struct TreeNode* root) {
                 predecessor.right = current
                 current= current.left 
                 
-                
+
             else (if you already traversed this path)
                 precessor.right = NULL
                 visit(current)
                 current = curren.right 
 
+    - Morris Traversal uses the threaded binary tree
 
 
 */
+// Morris Traversal Implementation
+void flatten(struct TreeNode* root) {
+    struct TreeNode* curr = root;
+    while (curr != NULL) {
+        if (curr->left != NULL) {
+            // if there is a left child
+            struct TreeNode* prev = curr->left;
+
+            while (prev->right != NULL && prev->right != curr) {
+                prev = prev->right;
+            }
+
+            prev->right = curr->right;
+            curr->right = curr->left;
+            curr->left = NULL;
+        }
+        curr = curr->right;
+    }
+}
+
+

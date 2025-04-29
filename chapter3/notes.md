@@ -82,6 +82,14 @@
   - Red-black trees
   - Splay trees
 
+## Threaded Binary Tree
+  - inorder traversal of binary trees without using recursion or the stack
+  - A binary tree is made threaded by making all right child pointers that would normally be NULL point to the inorder sucessor of the node if it exists
+  - useful when space is a concern, as it eliminated the need for a stack during reversal
+  - Influences algorithms like Morris Traversal
+
+  ![alt text](image-1.png)
+
 # 3.5 Priority Queues
 
 ## Core Concepts
